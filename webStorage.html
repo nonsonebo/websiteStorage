@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html manifest="website.manifest" lang="en" dir="ltr">
+
+<head>
+	<title>Web storage | HTML5</title>
+	<link rel="icon" href="favicon.jpg">
+
+	<meta name="title" content="Web storage | HTML5">
+	<meta name="description" content="This is our class on Web storage in HTML5">
+	<meta name="keywords" content="Cheap computer education in Enugu,Computer scholarships in Nigeria">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/table2.css">
+	<link rel="stylesheet" type="text/css" href="css/button.css">
+</head>
+<body>
+	<h1>JavaScript sessionStorage and localStorage</h1>
+<h2>Demonstrating localStorage</h2>
+<form method="get" action="" name="form">
+	<table>
+		<tr>
+			<td><label>Item</label></td>
+			<td><input type="text" name="item"></td>
+		</tr>
+		<tr>
+			<td><label>Color</label></td>
+			<td><input type="text" name="color"></td>
+		</tr>
+		<tr>
+			<td><label>Quantity</label></td>
+			<td><input type="number" name="quantity"></td>
+		</tr>
+		<tr>
+			<td><label>Price</label></td>
+			<td><input type="number" name="price"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input class="default btnHover" type="button" name="submit" value="SUBMIT" onclick="localS();"></td>
+		</tr>
+	</table>
+</form>
+<h2>Your submitted values are shown below</h2>
+<ul>
+	<li>ITEM: <span class="it"></span></li>
+	<li>COLOR: <span class="co"></span></li>
+	<li>QUANTITY: <span class="quant"></span></li>
+	<li>PRICE: <span class="pr"></span></li>
+</ul>
+
+<h4 class="error" style="color:brown; position:absolute;bottom:0;"></h4>
+<!-- 
+<h6>The quantity of television bought is<span></span></h6> -->
+	<script type="text/javascript">
+		sessionStorage.setItem("Item","Television");
+		sessionStorage.setItem("Color","Black");
+		sessionStorage.setItem("Quantity",1000);
+		sessionStorage.setItem("Price",50000);
+
+		/*sessionStorage.removeItem("Price");
+		sessionStorage.clear();*/
+
+		//let c = sessionStorage.getItem("Quantity");
+
+		//document.querySelector('span').innerHTML=c; 
+	</script>
+
+	<script type="text/javascript">
+
+		function localS(){
+		let fiv = form.item.value;
+		let fcv = form.color.value;
+		let fqv = form.quantity.value;
+		let fpv = form.price.value;
+
+		localStorage.setItem("Item",fiv);
+		localStorage.setItem("Color",fcv);
+		localStorage.setItem("Quantity",fqv);
+		localStorage.setItem("Price",fpv);
+
+		document.querySelector('.it').innerHTML = fiv;
+		document.querySelector('.co').innerHTML = fcv;
+		document.querySelector('.quant').innerHTML = fqv;
+		document.querySelector('.pr').innerHTML = fpv;
+}
+
+
+		/*localStorage.removeItem("Price");
+		localStorage.clear();*/
+
+		if(('localStorage' in window) && window['localStorage']!==null){
+			document.querySelector('.error').innerHTML='LocalStorage is supported by your browser';
+			/*alert('LocalStorage is supported by your browser');*/
+		}
+		else{
+			document.querySelector('.error').innerHTML='LocalStorage is not supported by your browser';
+			/*alert('LocalStorage is not supported by your browser')*/
+		}
+	</script>
+</body>
+</html>
