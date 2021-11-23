@@ -1,0 +1,2 @@
+# websiteStorage
+Local/session storage
